@@ -1,0 +1,80 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MyMasterPage.master.cs" Inherits="PetShop.MyMasterPage" %>
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>MyPetShop</title>
+  <asp:ContentPlaceHolder ID="head" runat="server">
+  </asp:ContentPlaceHolder>
+  <link href="Styles/bootstrap.css" rel="stylesheet" />
+  <link href="Styles/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <form id="form1" runat="server">
+ 
+    <!--Header-->
+    <header class="header">
+      <ul class="nav nav-pills">
+        <li class="navDark">
+          <asp:LinkButton ID="lbtnDefault" runat="server" CausesValidation="False" ForeColor="White" PostBackUrl="~/Default.aspx">首页</asp:LinkButton></li>
+        <li class="navDark">
+          <asp:LinkButton ID="lbtnRegister" runat="server" CausesValidation="False" ForeColor="White" OnClick="LbtnRegister_Click">注册</asp:LinkButton></li>
+        <li class="navDark">
+          <asp:LinkButton ID="lbtnLogin" runat="server" CausesValidation="False" ForeColor="White" OnClick="LbtnLogin_Click">登录</asp:LinkButton></li>
+        <li class="navDark">
+          <asp:LinkButton ID="lbtnCart" runat="server" CausesValidation="False" ForeColor="White" PostBackUrl="~/ShopCart.aspx">购物车</asp:LinkButton></li>
+        <li class="navDark">
+          <asp:LinkButton ID="lbtnSiteMap" runat="server" CausesValidation="False" ForeColor="White" PostBackUrl="~/Map.aspx">网站地图</asp:LinkButton></li>
+      </ul>
+      <div class="status" runat="server">
+          <asp:Label ID="LabShow" runat="server" >您还未登录</asp:Label>
+      </div>
+      <asp:Image ID="imgLogo" runat="server" ImageUrl="~/Images/logo.gif" class="logo" />
+    </header>
+
+    <!--Navigation-->
+    <nav class="sitemap">
+       您的位置：<asp:SiteMapPath ID="SiteMapPath1" runat="server" RenderCurrentNodeAsLink="true"></asp:SiteMapPath>
+    </nav>
+
+    <!--Body1-->
+    <section class="mainbody">
+      <div class="leftside">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+      </div>
+
+      <div class="rightside">
+          <div>
+          <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+          </asp:ContentPlaceHolder>
+        </div>
+      </div>
+      <%-- 清除浮动上面元素的浮动对下面元素布局的影响 clear: both; --%>
+      <div style="clear: both; height: 4px; margin: 2px 0; background-color: #ccccd4"></div>
+    </section>
+
+    <!--Body2-->
+    <section class="mainbody">
+
+      <div class="leftside">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+        </asp:ContentPlaceHolder>
+      </div>
+      <div class="rightside">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder4" runat="server">
+        </asp:ContentPlaceHolder>
+      </div>
+      <%-- 清除浮动上面元素的浮动对下面元素布局的影响 clear: both; --%>
+      <div style="clear: both;"></div>
+    </section>
+
+    <!--Footer-->
+    <footer class="footer">
+      Copyright 2022 MyPetShop
+    </footer>
+  </form>
+</body>
+</html>
